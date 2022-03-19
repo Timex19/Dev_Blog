@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dev Blog</title>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="../css/all.css">
+   
+    <!-- Owl-Carousel -->
+    <link rel="stylesheet" href="../css/owl.carousel.min.css">
+    <link rel="stylesheet" href="../css/owl.theme.default.min.css">
+
+    <!-- AOS Library -->
+    <link rel="stylesheet" href="../css/aos.css">
+
+    <!-- Link to the website styling -->
+    <link rel="stylesheet" href="../css/style.css">
+
+</head>
+<body>
+    
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-menu flex-row">
+            <div class="nav-brand">
+                <a href="../index.html" class="text-gray">Dev Blog</a>
+            </div>
+            <div class="toggle-collapse">
+                <div class="toggle-icons">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+            <div>
+                <ul class="nav-items">
+                    <li class="nav-link">
+                        <a href="../index.html">Home</a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="#">Category</a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="#">Archive</a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="#">Pages</a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="#">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="social text-gray">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-medium"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Site Section -->
+
+    <main>
+
+        <section class="container">
+            <div class="site-content">
+                <div class="posts">
+                    <div class="post-content" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="post-image">
+                            <div>
+                                <img src="../assets/Blog-post/what-happens-when-you-type-ls-in-the-shell.jpg" class="img" alt="blog1">
+                            </div>
+                            <div class="post-category flex-row">
+                                <span> Tech </span>
+                            </div>
+                            
+                        </div>
+                        <div class="post-title">
+                            <h1>What happens when you type ls -l in the shell</h1>
+                            <p>Previously I wrote about what happens when you type ls *.c in you shell. The last weeks with my team, we worked on project about create our own shell.</p>
+                            <p>So based on the knowledge we acquire doing <a href="https://github.com/timex19/simple_shell">our simple_shell</a> today I want to talk you deeply about what happens when you type some instruction to your shell.</p>
+                            <h2>Table of contents:</h2>
+                            <ul>
+                                <li>Difference between shell and terminal</li>
+                                <li>What is the Kernel and how system calls works</li>
+                                <li>Child and parent processes</li>
+                                <li>PATH and commands</li>
+                                <li>How shell execute <code class="code_2">ls -l</code></li>
+                            </ul>
+                            <p>If you want to execute commands on your shell, you should first open your terminal. So, first of all, I want you to have clear the main difference between shell and terminal.</p>
+                            <h2>Shell vs Terminal</h2>
+                            <p>I will give you a conscious explanation about this difference, of course we could go deep in this topic but for today purpose I will cover the main differences. First, shell is a program that runs inside a terminal. So, terminal is an user interface where we can execute a shell. The terminal basically is a text input/output environment, but terminal by itself can interpret what users type in keyboard. There is where a shell (also called command line interpreter) comes. A shell is a program able to read user input, interpret this and according to the commands and flash, show the respective output. The workflow is something like this.</p>
+                            <img src="../assets/Blog-post/what-happens-when-you-type-ls-in-the-shell-terminal.png" class="img_4" alt="what-happens-when-you-type-ls-in-the-shell-terminal">
+                            <p>The first version of shell was <bold class="bold">sh</bold>, wrote by Stephen Bourne in 1977. At 1989 <bold class="bold">sh</bold> shell was improved and now we can use <bold class="bold">bash</bold> and this is currently the default shell for most UNIX operating systems (like linux and even MacOS).</p>
+                            <p>Now, both programs shell and terminal have some communication with the Kernel.</p>
+                            <h2>But what is the kernel and syscalls?</h2>
+                            <p>The kernel is a low level software responsible of communication (in safe mode) between hardware and resources with all the programs that user wants to execute. The kernel also control the external devices, so is the kernel who allows for example, that some text editor, print (in printer) some documents.</p>
+                            <p>But the way the kernel works is with system calls. A system call is similar to functions calls, the main difference is that syscalls are subroutines built inside the system while a function is a subroutine built within a specific program. There are syscalls for handle all communication with the hardware, such a <code class="code_2">open/opendir</code> that allows us to open files/directories, <code class="code_2">write</code> for example allow us to print different kind of messages and <code class="code_2">getline</code> is the syscall that we use for code our own shell, because it helps us to get the user input in terminal.</p>
+                            <h2>Child and parent processes</h2>
+                            <p>Its important for you know that everything in operating systems are handled with processes. So, when you turn on your computer, the first process (init) starts. Each time you run something, it create a new processes. For example, when you run your shell (inside terminal), the shell runs in new process which parent process will be the process where terminal runs. Here you can see:</p>
+                            <img src="../assets/Blog-post/what-happens-when-you-type-ls-in-the-shell-output.png" class="img_5" alt="what-happens-when-you-type-ls-in-the-shell-output">
+                            <p>The PID is the id for current process and PPID is the id of its parent process. Look at the image that the first process is <code class="code_2">init</code> and have the PID 1. Here I run our simple_shell project inside my terminal (zsh), and we can see how processes are working. The simple_shell process with 185 PID was created by 78 process with actually is zsh process.</p>
+                            <p>Know how to handle process is important and allows you to run different tasks without problems. The system call you use for create child processes is <code class="code_2">fork()</code> and if you want that parent process stop its execution until child ends you should use <code class="code_2">wait()</code> syscall.</p>
+                            <p>We’re almost done to understand what happens when you type <code class="code_2">ls -l</code> in the shell. But before, quickly I will explain you what are <code class="code_2">$PATH</code> and why this is important to handle commands.</p>
+                            <h2>$PATH and commands</h2>
+                            <p>In a nutshell, PATH is a environment variable that contains directories separated by <code class="code_2">:</code> with executable files where CLI (command line interpreters or shell) will search before execute commands. But what are commands? It is easy, a command is just an instruction given by the user to shell through the terminal. Interesting thing here is that the commands can be follow by flags. Flags works form commands just as arguments works for functions in programming. The flags tells the command more details about how to execute a task. This will look like this:</p>
+                            <img src="../assets/Blog-post/what-happens-when-you-type-ls-in-the-shell-flags.png" class="img_6" alt="what-happens-when-you-type-ls-in-the-shell-flags">
+                            <p>Finally let’s see how everything works the shell, when you type <code class="code_2">ls -l</code></p>
+                            <h2>How shell execute ls -l</h2>
+                            <p>Now that you already understand (I hope) what is the terminal, what is the shell, how both communicate with kernel and syscalls, child and parent processes and PATH variable, I can teach you the shell flow for execute command <code class="code_2">ls</code> with flag <code class="code_2">-l</code>. First a user opens the terminal and execute a shell program. Then user type <code class="code_2">ls -l</code> and when user type enter, the shell output this:</p>
+                            <img src="../assets/Blog-post/what-happens-when-you-type-ls-in-the-shell-executed.png" class="img_5" alt="what-happens-when-you-type-ls-in-the-shell-executed">
+                            <p>Between user input and shell output, the shell does this task:</p>
+                            <ul>
+                                <li>show the PS1 prompt. PS1 is a variable with the default shell prompt $</li>
+                                <li>wait for user input</li>
+                                <li>read user input with getline system call ls -l</li>
+                                <li>tokenize the user input to identify command and flags. At the beginning ls -l is just one string. When shell tokenize our command is ls and the flag-l . Here -l flag means long format</li>
+                                <li>search how to execute command: The shell will first search if the command that user inputs, is an Alias (like shortcut for commands), if is not an Alias search for built-ins (command built inside the shell program), if is not then will search if the command is a executable file inside all $PATH dirs (here is lscommand) if not found shell will throw a “not found” error. But if the command starts with dot or slash, the shell will execute it without any search.</li>
+                                <li>To execute, shell validates that command or file, exists and user can execute permissions (with stat() and access() syscalls). If this happens, the shell will creates a child process (with fork() and wait syscalls) and here ls -l is executed (here you can use execute() syscall. It must be executed in child process because when execution ends, the process ends to. But we want to keep our shell with its prompt running. That’s why every command executed, runs inside a child process. So here we got the output showed in the image above.</li>
+                                <li>Finally, after execution the <code class="code_2">PS1</code> prompt variable is showed again and shell once again waits for user input. An this loop runs until user type <code class="code_2">exit</code> or <code class="code_2">CTRL + D</code> to end shell process.</li>
+                            </ul> 
+                        </div>
+                    </div>
+                </div>
+                <aside class="sidebar">
+                    <div class="category">
+                        <h2>Category</h2>
+                        <ul class="category-list">
+                            <li class="list-items" data-aos="fade-left" data-aos-delay="100">
+                                <a href="#">Software</a>
+                                <span>(05)</span>
+                            </li>
+                            <li class="list-items" data-aos="fade-left" data-aos-delay="200">
+                                <a href="#">Technology</a>
+                                <span>(02)</span>
+                            </li>
+                            <li class="list-items"data-aos="fade-left" data-aos-delay="300">
+                                <a href="#">Lifestyle</a>
+                                <span>(07)</span>
+                            </li>
+                            <li class="list-items" data-aos="fade-left" data-aos-delay="400">
+                                <a href="#">Shopping</a>
+                                <span>(01)</span>
+                            </li>
+                            <li class="list-items" data-aos="fade-left" data-aos-delay="500">
+                                <a href="#">Food</a>
+                                <span>(08)</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="popular-post">
+                        <h2>Popular Posts</h2>
+                        <div class="post-content" data-aos="flip-up" data-aos-delay="200">
+                            <div class="post-image">
+                                <div>
+                                    <img src="../assets/Blog-post/how-to-compile-your-c-source-code.jpg" class="img" alt="how-to-compile-your-c-source-code">
+                                </div>
+                                <div class="post-info flex-row">
+                                    <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;January 16, 2022</span>
+                                </div>
+                            </div>
+                            <div class="post-title">
+                                <a href="../blog posts/post_2.html">How to compile your C source code</a>
+                            </div>
+                        </div>
+                        <div class="post-content" data-aos="flip-up" data-aos-delay="300">
+                            <div class="post-image">
+                                <div>
+                                    <img src="../assets/Blog-post/how-to-find-all-your-c-files.png" class="img" alt="how-to-find-all-your-c-files">
+                                </div>
+                                <div class="post-info flex-row">
+                                    <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;January 16, 2022</span>
+                                </div>
+                            </div>
+                            <div class="post-title">
+                                <a href="../blog posts/post_1.html">How to find all your .c files</a>
+                            </div>
+                        </div>
+                        <div class="post-content" data-aos="flip-up" data-aos-delay="400">
+                            <div class="post-image">
+                                <div>
+                                    <img src="../assets/Blog-post/what-happens-when-you-type-ls-in-the-shell.jpg" class="img" alt="what-happens-when-you-type-ls-in-the-shell">
+                                </div>
+                                <div class="post-info flex-row">
+                                    <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;January 16, 2022</span>
+                                </div>
+                            </div>
+                            <div class="post-title">
+                                <a href="../blog posts/post_3.html">What happens when you type ls -l in the shell</a>
+                            </div>
+                        </div>
+                        <div class="post-content" data-aos="flip-up" data-aos-delay="400">
+                            <div class="post-image">
+                                <div>
+                                    <img src="../assets/Blog-post/C-compiler-1.jpg" class="img" alt="how-to-install-c-compiler">
+                                </div>
+                                <div class="post-info flex-row">
+                                    <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;January 16, 2022</span>
+                                </div>
+                            </div>
+                            <div class="post-title">
+                                <a href="../blog posts/post_4.html">How to install the C language GCC compiler on Windows</a>
+                            </div>
+                        </div>
+                    </div>
+                        <div class="newsletter" data-aos="fade-up" data-aos-delay="300">
+                            <h2>Newsletter</h2>
+                            <div class="form-element">
+                                <input type="text" class="input-element" placeholder="Email">
+                                <button class="btn form-btn">Subscribe</button>
+                            </div>
+                        </div>
+                        <div class="popular-tags">
+                            <h2>Popuplar Tags</h2>
+                            <div class="tags flex-row">
+                                <span class="tag" data-aos="flip-up" data-aos-delay="100">Software</span>
+                                <span class="tag" data-aos="flip-up" data-aos-delay="200">Technology</span>
+                                <span class="tag" data-aos="flip-up" data-aos-delay="300">Illustration</span>
+                                <span class="tag" data-aos="flip-up" data-aos-delay="400">Design</span>
+                                <span class="tag" data-aos="flip-up" data-aos-delay="500">Programming</span>
+                                <span class="tag" data-aos="flip-up" data-aos-delay="600">Lifestyle</span>
+                                <span class="tag" data-aos="flip-up" data-aos-delay="700">Project</span>
+                            </div>
+                        </div>
+                </aside>
+            </div>
+        </section>
+
+    </main>
+    
+    <!-- Main Site Section -->
+    <!-- Footer -->
+
+    <footer class="footer">
+        <div class="container">
+            <div class="about-us" data-aos="fade-right" data-aos-delay="200">
+                <h2>About us</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium quia atque nemo ad modi officiis
+                    iure, autem nulla tenetur repellendus.</p>
+            </div>
+            <div class="newsletter" data-aos="fade-right" data-aos-delay="200">
+                <h2>Newsletter</h2>
+                <p>Stay update with our latest</p>
+                <div class="form-element">
+                    <input type="text" placeholder="Email"><span><i class="fas fa-chevron-right"></i></span>
+                </div>
+            </div>
+            <div class="instagram" data-aos="fade-left" data-aos-delay="200">
+                <h2>Instagram</h2>
+                <div class="flex-row">
+                    <img src="../assets/instagram/thumb-card3.png" alt="insta1">
+                    <img src="../assets/instagram/thumb-card4.png" alt="insta2">
+                    <img src="../assets/instagram/thumb-card5.png" alt="insta3">
+                </div>
+                <div class="flex-row">
+                    <img src="../assets/instagram/thumb-card6.png" alt="insta4">
+                    <img src="../assets/instagram/thumb-card7.png" alt="insta5">
+                    <img src="../assets/instagram/thumb-card8.png" alt="insta6">
+                </div>
+            </div>
+            <div class="follow" data-aos="fade-left" data-aos-delay="200">
+                <h2>Follow us</h2>
+                <p>Let us be social</p>
+                <div>
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-medium"></i>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="rights flex-row">
+            <h4 class="text-gray">
+                Copyright ©2022 All rights reserved | made with <span>❤</span> by
+                <a href="www.github.com/timex19" target="_black"> <i class="fab fa-github"></i> Ojo Timilehin</a>
+            </h4>
+        </div>
+        <div class="move-up">
+            <span><i class="fas fa-arrow-circle-up fa-2x"></i></span>
+        </div>
+    </footer>
+
+    <!-- Footer -->
+
+    <!-- Jquery Library file -->
+    <script src="../js/Jquery3.4.1.min.js"></script>
+    
+    <!-- Owl-Carousel js file -->
+    <script src="../js/owl.carousel.min.js"></script>
+
+    <!-- AOS js Library -->
+    <script src="../js/aos.js"></script>
+
+    <!-- Custom Javascript file -->
+    <script src="../js/main.js"></script>
+</body>
+</html>

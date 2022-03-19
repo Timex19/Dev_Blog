@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dev Blog</title>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="../css/all.css">
+   
+    <!-- Owl-Carousel -->
+    <link rel="stylesheet" href="../css/owl.carousel.min.css">
+    <link rel="stylesheet" href="../css/owl.theme.default.min.css">
+
+    <!-- AOS Library -->
+    <link rel="stylesheet" href="../css/aos.css">
+
+    <!-- Link to the website styling -->
+    <link rel="stylesheet" href="../css/style.css">
+
+</head>
+<body>
+    
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-menu flex-row">
+            <div class="nav-brand">
+                <a href="../index.html" class="text-gray">Dev Blog</a>
+            </div>
+            <div class="toggle-collapse">
+                <div class="toggle-icons">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+            <div>
+                <ul class="nav-items">
+                    <li class="nav-link">
+                        <a href="../index.html">Home</a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="#">Category</a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="#">Archive</a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="#">Pages</a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="#">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="social text-gray">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-medium"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Site Section -->
+
+    <main>
+
+        <section class="container">
+            <div class="site-content">
+                <div class="posts">
+                    <div class="post-content" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="post-image">
+                            <div>
+                                <img src="../assets/Blog-post/how-to-compile-your-c-source-code.jpg" class="img" alt="blog1">
+                            </div>
+                            <div class="post-category flex-row">
+                                <span> Tech </span>
+                            </div>
+                            
+                        </div>
+                        <div class="post-title">
+                            <h1>How to compile your C source code</h1>
+                            <p>If you are a software developer, you should know something about C programming language. Here, we're going to learn, how you can compile your C source code from the terminal.</p>
+                            <p>If you use to use some IDE to code, maybe you don’t know that before you can execute your code, there is a compilation process. GCC is the main compiler for C/C++ language but before we use gcc commands, let’s understand how compilation process works.</p>
+                            <h2>Compilation process in C</h2>
+                            <p>Before you can execute your C code, there is some steps your GCC done before. Let’s see this in a nutshell.</p>
+                            <p>After you write your source code, GCC compiler re writes your code and preprocess. In preprocess step, all your comments are removed. Now, compiler converts your C code to Assembly code (this step is compile step), so after this, GCC creates an .s file. The next step is assemble your Assembly code to Binary code (so your computer can understand). So, when you assemble, this process creates other new .o file. Now the last step is called “link”. That’s because when you code a big project, you usually don’t have just one .c file. You should have a lot of .c files. So, after you preprocess, compile, assemble all those files, your compiler has to link all those file in just one executable file. So, now you get one executable file for all your C code.</p>
+                            <img src="../assets/Blog-post/how-to-compile-your-c-source-code-process.png" class="img_3" alt="how-to-compile-your-c-source-code-process"> 
+                            <p>As I told you before, this is all compilation steps were explained in a nutshell. I encourage you to visit this website <a href="https://www.geeksforgeeks.org/compiling-a-c-program-behind-the-scenes/">(Compiling a C program:- Behind the Scenes)</a> if you want to know deeper what exactly happens in each step.</p>
+                            <p>Now I want to teach you how you can execute each compilation step. At this point, if you have not installed gcc compiler, you should it now. Just type <code class="code_2">$sudo apt install gcc</code>. It should be enough to get all gcc tool in your terminal.</p>
+                            <p>Let’s start with the preprocess step. If you want just preprocess your code but no compile, no assemble, no link, there is a specific flag to gcc command. <code class="code_2">$gcc -E yourfile.c</code> If you use -E flag, GCC compiler will preprocess your code but don’t compile. To preprocess and compile your code you use -S flag, so your command looks like <code class="code_2">$gcc -S yourfile.c</code> But now, if you want preprocess, compile and assemble you can use -c flag in your command. So after you execute <code class="code_2">$gcc -c yourfile.c</code> it gives you an output file with .o extension. Finally to do all steps with just one command, use only <code class="code_2">$gcc yourfile.c</code>  and GCC compiler will do everything for you, and gives an executable file.</p>
+                        </div>
+                    </div>
+                </div>
+                <aside class="sidebar">
+                    <div class="category">
+                        <h2>Category</h2>
+                        <ul class="category-list">
+                            <li class="list-items" data-aos="fade-left" data-aos-delay="100">
+                                <a href="#">Software</a>
+                                <span>(05)</span>
+                            </li>
+                            <li class="list-items" data-aos="fade-left" data-aos-delay="200">
+                                <a href="#">Technology</a>
+                                <span>(02)</span>
+                            </li>
+                            <li class="list-items"data-aos="fade-left" data-aos-delay="300">
+                                <a href="#">Lifestyle</a>
+                                <span>(07)</span>
+                            </li>
+                            <li class="list-items" data-aos="fade-left" data-aos-delay="400">
+                                <a href="#">Shopping</a>
+                                <span>(01)</span>
+                            </li>
+                            <li class="list-items" data-aos="fade-left" data-aos-delay="500">
+                                <a href="#">Food</a>
+                                <span>(08)</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="popular-post">
+                        <h2>Popular Posts</h2>
+                        <div class="post-content" data-aos="flip-up" data-aos-delay="200">
+                            <div class="post-image">
+                                <div>
+                                    <img src="../assets/Blog-post/how-to-compile-your-c-source-code.jpg" class="img" alt="how-to-compile-your-c-source-code">
+                                </div>
+                                <div class="post-info flex-row">
+                                    <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;January 16, 2022</span>
+                                </div>
+                            </div>
+                            <div class="post-title">
+                                <a href="../blog posts/post_2.html">How to compile your C source code</a>
+                            </div>
+                        </div>
+                        <div class="post-content" data-aos="flip-up" data-aos-delay="300">
+                            <div class="post-image">
+                                <div>
+                                    <img src="../assets/Blog-post/how-to-find-all-your-c-files.png" class="img" alt="how-to-find-all-your-c-files">
+                                </div>
+                                <div class="post-info flex-row">
+                                    <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;January 16, 2022</span>
+                                </div>
+                            </div>
+                            <div class="post-title">
+                                <a href="../blog posts/post_1.html">How to find all your .c files</a>
+                            </div>
+                        </div>
+                        <div class="post-content" data-aos="flip-up" data-aos-delay="400">
+                            <div class="post-image">
+                                <div>
+                                    <img src="../assets/Blog-post/what-happens-when-you-type-ls-in-the-shell.jpg" class="img" alt="what-happens-when-you-type-ls-in-the-shell">
+                                </div>
+                                <div class="post-info flex-row">
+                                    <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;January 16, 2022</span>
+                                </div>
+                            </div>
+                            <div class="post-title">
+                                <a href="../blog posts/post_3.html">What happens when you type ls -l in the shell</a>
+                            </div>
+                        </div>
+                        <div class="post-content" data-aos="flip-up" data-aos-delay="400">
+                            <div class="post-image">
+                                <div>
+                                    <img src="../assets/Blog-post/C-compiler-1.jpg" class="img" alt="how-to-install-c-compiler">
+                                </div>
+                                <div class="post-info flex-row">
+                                    <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;January 16, 2022</span>
+                                </div>
+                            </div>
+                            <div class="post-title">
+                                <a href="../blog posts/post_4.html">How to install the C language GCC compiler on Windows</a>
+                            </div>
+                        </div>
+                    </div>
+                        <div class="newsletter" data-aos="fade-up" data-aos-delay="300">
+                            <h2>Newsletter</h2>
+                            <div class="form-element">
+                                <input type="text" class="input-element" placeholder="Email">
+                                <button class="btn form-btn">Subscribe</button>
+                            </div>
+                        </div>
+                        <div class="popular-tags">
+                            <h2>Popuplar Tags</h2>
+                            <div class="tags flex-row">
+                                <span class="tag" data-aos="flip-up" data-aos-delay="100">Software</span>
+                                <span class="tag" data-aos="flip-up" data-aos-delay="200">Technology</span>
+                                <span class="tag" data-aos="flip-up" data-aos-delay="300">Illustration</span>
+                                <span class="tag" data-aos="flip-up" data-aos-delay="400">Design</span>
+                                <span class="tag" data-aos="flip-up" data-aos-delay="500">Programming</span>
+                                <span class="tag" data-aos="flip-up" data-aos-delay="600">Lifestyle</span>
+                                <span class="tag" data-aos="flip-up" data-aos-delay="700">Project</span>
+                            </div>
+                        </div>
+                </aside>
+            </div>
+        </section>
+
+    </main>
+    
+    <!-- Main Site Section -->
+    <!-- Footer -->
+
+    <footer class="footer">
+        <div class="container">
+            <div class="about-us" data-aos="fade-right" data-aos-delay="200">
+                <h2>About us</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium quia atque nemo ad modi officiis
+                    iure, autem nulla tenetur repellendus.</p>
+            </div>
+            <div class="newsletter" data-aos="fade-right" data-aos-delay="200">
+                <h2>Newsletter</h2>
+                <p>Stay update with our latest</p>
+                <div class="form-element">
+                    <input type="text" placeholder="Email"><span><i class="fas fa-chevron-right"></i></span>
+                </div>
+            </div>
+            <div class="instagram" data-aos="fade-left" data-aos-delay="200">
+                <h2>Instagram</h2>
+                <div class="flex-row">
+                    <img src="../assets/instagram/thumb-card3.png" alt="insta1">
+                    <img src="../assets/instagram/thumb-card4.png" alt="insta2">
+                    <img src="../assets/instagram/thumb-card5.png" alt="insta3">
+                </div>
+                <div class="flex-row">
+                    <img src="../assets/instagram/thumb-card6.png" alt="insta4">
+                    <img src="../assets/instagram/thumb-card7.png" alt="insta5">
+                    <img src="../assets/instagram/thumb-card8.png" alt="insta6">
+                </div>
+            </div>
+            <div class="follow" data-aos="fade-left" data-aos-delay="200">
+                <h2>Follow us</h2>
+                <p>Let us be social</p>
+                <div>
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-medium"></i>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="rights flex-row">
+            <h4 class="text-gray">
+                Copyright ©2022 All rights reserved | made with <span>❤</span> by
+                <a href="www.github.com/timex19" target="_black"> <i class="fab fa-github"></i> Ojo Timilehin</a>
+            </h4>
+        </div>
+        <div class="move-up">
+            <span><i class="fas fa-arrow-circle-up fa-2x"></i></span>
+        </div>
+    </footer>
+
+    <!-- Footer -->
+
+    <!-- Jquery Library file -->
+    <script src="../js/Jquery3.4.1.min.js"></script>
+    
+    <!-- Owl-Carousel js file -->
+    <script src="../js/owl.carousel.min.js"></script>
+
+    <!-- AOS js Library -->
+    <script src="../js/aos.js"></script>
+
+    <!-- Custom Javascript file -->
+    <script src="../js/main.js"></script>
+</body>
+</html>

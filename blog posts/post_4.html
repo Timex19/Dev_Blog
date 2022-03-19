@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dev Blog</title>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="../css/all.css">
+   
+    <!-- Owl-Carousel -->
+    <link rel="stylesheet" href="../css/owl.carousel.min.css">
+    <link rel="stylesheet" href="../css/owl.theme.default.min.css">
+
+    <!-- AOS Library -->
+    <link rel="stylesheet" href="../css/aos.css">
+
+    <!-- Link to the website styling -->
+    <link rel="stylesheet" href="../css/style.css">
+
+</head>
+<body>
+    
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-menu flex-row">
+            <div class="nav-brand">
+                <a href="../index.html" class="text-gray">Dev Blog</a>
+            </div>
+            <div class="toggle-collapse">
+                <div class="toggle-icons">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+            <div>
+                <ul class="nav-items">
+                    <li class="nav-link">
+                        <a href="../index.html">Home</a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="#">Category</a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="#">Archive</a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="#">Pages</a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="#">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="social text-gray">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-medium"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Site Section -->
+
+    <main>
+
+        <section class="container">
+            <div class="site-content">
+                <div class="posts">
+                    <div class="post-content" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="post-image">
+                            <div>
+                                <img src="../assets/Blog-post/C-compiler-1.jpg" class="img" alt="how-to-install-c-compiler">
+                            </div>
+                            <div class="post-category flex-row">
+                                <span> Tech </span>
+                            </div>
+                            
+                        </div>
+                        <div class="post-title">
+                            <h1>How to install the C language GCC compiler on Windows</h1>
+                            <p>On Linux, gcc is install by default and you can start to compile and execute C language code almost right away!</p>
+                            <p>That’s not the case on Windows…</p>
+                            <p>I have been struggling with how to do the same thing on Windows 10 for some time, but I finally succeeded.</p>
+                            <p><bold class="bold">Note:</bold> The procedure I describe here will not only allow you to install gcc, but also g++, gfortran, and many other useful tools that you usually only get in linux OS (like ls or grep)</p>
+                            <h2>Getting Started With The Installation</h2>
+                            <p>If you want a simple way to create programs based on C, C++, Fortran, etc… you will have to install a software with can compile the code you write into code that the machine understands</p>
+                            <p>Such program is called a <bold class="bold">“compiler”</bold></p>
+                            <p>The most well know compiler for C language is the GNU compiler called GCC.</p>
+                            <p>There are actually several compilers which go together like a suite:</p>
+                            <ul>
+                                <li>for C++, you have the compiler g++</li>
+                                <li>for Fortran, the compiler is called gfortran</li>
+                            </ul>
+                            <h2>1. Why using the gcc compiler?</h2>
+                            <p>If you are on Windows, you probably heard about software such as visual studio from Microsoft which also you to write and compile C and C++ code as well.</p>
+                            <p>That’s true, and it’s totally fine if you want to use it…</p>
+                            <p>I am personally not such a big fan of Visual Studio because of the following reasons:</p>
+                            <ul>
+                                <li>It is huge to download and install (between 10 and 20 GB if I remember)</li>
+                                <li>It’s a big pain to set up the first time</li>
+                                <li>Building even a very simple project takes much more time than it should</li>
+                            </ul>
+                            <p>Because of that, I find that I kind of takes out the fun of programming and seeing immediately the result of what you did…</p>
+                            <p>Now, <bold class="bold">for large pieces of software,</bold> visual studio is probably the way to go</p>
+                            <h2>2. How to use the gcc compiler?</h2>
+                            <p>Once installed on your machine, gcc is just a piece of cake to use to compile a simple c language code</p>
+                            <h2>Step 1: Write your c code</h2>
+                            <p>For example, let’s take this Hello World example;</p>
+                            <pre>
+                                <code>
+                                    #include 
+                        
+                                    int main()
+                                    {
+                                    printf("Hello World!/n");
+                                    return 0;
+                                    }
+                                </code>
+                            </pre>
+                            <h2>Step 2: Compile using gcc</h2>
+                            <p>Write the following line of code into your terminal:</p>
+                            <pre>
+                                <code>
+                                    gcc helloworld.c -o helloworld
+                                </code>
+                            </pre>
+                            <p>This will generate an executable binary file called helloworld.exe which can be used to run your code</p>
+                            <img src="../assets/Blog-post/code.png" class="img_7" alt="gcc-complier">
+                            <h2>Step 3: Execute your code</h2>
+                            <p>Just go into the directory where your executable is and run it by writing “helloworld.exe”</p>
+                            <img src="../assets/Blog-post/code_2.png" class="img_7" alt="gcc-complier">
+                            <h2>3. The principle</h2>
+                            <p>Now that you understand how it can be easy to start with writing C code, let’s talk about the difficult part…</p>
+                            <p>How to actually install gcc on Windows…</p>
+                            <p>The reason it is easy to install compilers and other kind of open source software on linux is because you have a very powerful command line terminal called bash which handles the installation, uninstallation and upgrade of software using a software called “apt” on debian-based linux systems.</p>
+                            <p>On Windows, if you want to have gcc (and the other compilers too), you have to download the source code and find a way to compile it…</p>
+                            <p>For that, you will need to install first other software called pre-requisites which will also need to be compiled, etc…</p>
+                            <p>You can spend several days trying to do that if you are really motivated</p>
+                            <p><bold class="bold">I will present you another way much simpler!</bold></p>
+                            <p>For that I will have to install a software called MSYS2, which is an “easy” way to give some linux feel to your Windows PC and able it to install programs almost as easily as in linux…</p>
+                            <p>You will be able to install gcc just with one command line like this:</p>
+                            <img src="../assets/Blog-post/code_3.png" class="img_7" alt="msys-terminal">
+                            <p>Excited?</p>
+                            <p>Let’s go</p>
+                            <h2>4. Installing MSYS2 on your PC</h2>
+                            <p>What is MSYS2?</p>
+                            <p>According to their website, MSYS2 is a software distribution and building platform for Windows</p>
+                            <p><bold class="bold">The Website: </bold><a href="https://www.msys2.org/">https://www.msys2.org/</a></p>
+                            <p>Installing it is actually a peace of cake</p>
+                            <p><bold class="bold">Just download the correct installer and launch it with admin rights and you are good to go</bold></p>
+                            <img src="../assets/Blog-post/mysc installer.png" class="img_5"  alt="msys2-installer">
+                            <p>Expected something more complex?</p>
+                            <p>Sorry about that</p>
+                            <p>Once you installed it, you will see 3 programs appear in your list of programs:</p>
+                            <ul>
+                                <li>MSYS2 MinGW 32-bit</li>
+                                <li>MSYS2 MinGW 64-bit</li>
+                                <li>MSYS2 MSYS</li>
+                            </ul>
+                            <p>Run the 3rd one MSYS2 MSYS to open a special command window in which you can input commands and start to install programs</p>
+                            <img src="../assets/Blog-post/msys _2.png" class="img_8"  alt="msys-terminal">
+                            <p>The package management system which is equivalent to apt-get on linux is called pacman</p>
+                            <p>When you install MSYS2 for the first time, you have to update pacman using the following command:</p>
+                            <pre>
+                                <code>
+                                    pacman -Syu
+                                </code>
+                            </pre>
+                            <h2>5. Installing GCC and other development tools with the pacman package management system</h2>
+                            <p>Then you can start to install gcc and other developer tools using pacman like this:</p>
+                            <pre>
+                                <code class="code_1">
+                                    # Install make, autoconf, etc to C:\msys64\usr\bin
+                                    pacman -S base-devel gcc vim cmake
+                                </code>
+                            </pre>
+                            <p>This command will install first a set of development software included in a package called base-devel and then it will install gcc, vim and cmake</p>
+                            <p>vim is optional, but always good to have 😉</p>
+                            <p>(You can also install emacs very easily in the same way)</p>
+                            <p>In the package base-devel, you have 53 useful developement tools that can be installed:</p>
+                            <pre>
+                                <code class="pacman">
+                                    # pacman -S base-devel
+                                        1) asciidoc  2) autoconf  3) autoconf2.13  4) autogen  
+                                    5) automake-wrapper
+                                        6) automake1.10  7) automake1.11  8) automake1.12  
+                                    9) automake1.13
+                                        10) automake1.14  11) automake1.15  12) automake1.16  
+                                    13) automake1.6
+                                        14) automake1.7  15) automake1.8  16) automake1.9  17) bison  
+                                    18) diffstat
+                                        19) diffutils  20) dos2unix  21) file  22) flex  23) gawk  
+                                    24) gdb
+                                        25) gettext  26) gettext-devel  27) gperf  28) grep  29) groff  
+                                    30) help2man
+                                        31) intltool  32) lemon  33) libtool  34) libunrar  
+                                    35) libunrar-devel
+                                        36) m4  37) make  38) man-db  39) pacman  40) pactoys-git  
+                                    41) patch
+                                        42) patchutils  43) perl  44) pkg-config  45) pkgfile  46) quilt  
+                                    47) rcs
+                                        48) scons  49) sed  50) swig  51) texinfo  52) texinfo-tex  
+                                    53) ttyrec
+                                    
+                                    # pacman -S gcc
+                                        binutils-2.30-1  isl-0.19-1  mpc-1.1.0-1
+                                        msys2-runtime-devel-2.11.1-2
+                                        msys2-w32api-headers-6.0.0.5223.7f9d8753-1
+                                        msys2-w32api-runtime-6.0.0.5223.7f9d8753-1
+                                        windows-default-manifest-6.4-1  gcc-7.3.0-3
+                                </code>
+                            </pre>
+                            <h2>6. Last Important Step: Add Executables to your Windows PATH</h2>
+                            <p>Now you are able to install all those packages easily, but how to access them through the normal windows command line?</p>
+                            <p>For that, you have to add the two following directories to your PATH:</p>
+                            <pre>
+                                <code>
+                                    C:\msys64\mingw64\bin
+                                    C:\msys64\usr\bin
+                                </code>
+                            </pre>
+                            <p>To add anything to your PATH in Windows 10:</p>
+                            <p><bold class="bold">1. Search “Advanced System Settings” in the search bar</bold></p>
+                            <img src="../assets/Blog-post/window.png" class="img_9"  alt="windows-settings">
+                            <p><bold class="bold">2. Open the “environment variables” window, click on the PATH variable and click on “Edit”</bold></p>
+                            <img src="../assets/Blog-post/window_2.png" class="img_9"  alt="windows-settings">
+                            <p><bold class="bold">3. Click on the “New” button and add the 2 following directories to your PATH</bold></p>
+                            <img src="../assets/Blog-post/window_3.png" class="img_9"  alt="windows-settings">
+                            <p><bold class="bold">Important Note:</bold> This adds a lot of executables to your path which might conflict with other applications. The usr\bin\ directory contains the whole slew of executables listed above. There is a lot of unnecessary stuff in that directory.</p>
+                            <p><bold class="bold">4. Click on OK on all the windows and open a new Command Window and you will be able to use gcc into your windows command prompt!</bold></p>
+                            <img src="../assets/Blog-post/terminal.png" class="img_8"  alt="terminal">
+                            <p>That’s all for today, hope you understand better now how to install and use GCC and other linux tools on windows!</p>
+                            <p>I will write new articles soon about how to develop simple programs in C.</p>
+                        </div>
+                    </div>
+                </div>
+                <aside class="sidebar">
+                    <div class="category">
+                        <h2>Category</h2>
+                        <ul class="category-list">
+                            <li class="list-items" data-aos="fade-left" data-aos-delay="100">
+                                <a href="#">Software</a>
+                                <span>(05)</span>
+                            </li>
+                            <li class="list-items" data-aos="fade-left" data-aos-delay="200">
+                                <a href="#">Technology</a>
+                                <span>(02)</span>
+                            </li>
+                            <li class="list-items"data-aos="fade-left" data-aos-delay="300">
+                                <a href="#">Lifestyle</a>
+                                <span>(07)</span>
+                            </li>
+                            <li class="list-items" data-aos="fade-left" data-aos-delay="400">
+                                <a href="#">Shopping</a>
+                                <span>(01)</span>
+                            </li>
+                            <li class="list-items" data-aos="fade-left" data-aos-delay="500">
+                                <a href="#">Food</a>
+                                <span>(08)</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="popular-post">
+                        <h2>Popular Posts</h2>
+                        <div class="post-content" data-aos="flip-up" data-aos-delay="200">
+                            <div class="post-image">
+                                <div>
+                                    <img src="../assets/Blog-post/how-to-compile-your-c-source-code.jpg" class="img" alt="how-to-compile-your-c-source-code">
+                                </div>
+                                <div class="post-info flex-row">
+                                    <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;January 16, 2022</span>
+                                </div>
+                            </div>
+                            <div class="post-title">
+                                <a href="../blog posts/post_2.html">How to compile your C source code</a>
+                            </div>
+                        </div>
+                        <div class="post-content" data-aos="flip-up" data-aos-delay="300">
+                            <div class="post-image">
+                                <div>
+                                    <img src="../assets/Blog-post/how-to-find-all-your-c-files.png" class="img" alt="how-to-find-all-your-c-files">
+                                </div>
+                                <div class="post-info flex-row">
+                                    <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;January 16, 2022</span>
+                                </div>
+                            </div>
+                            <div class="post-title">
+                                <a href="../blog posts/post_1.html">How to find all your .c files</a>
+                            </div>
+                        </div>
+                        <div class="post-content" data-aos="flip-up" data-aos-delay="400">
+                            <div class="post-image">
+                                <div>
+                                    <img src="../assets/Blog-post/what-happens-when-you-type-ls-in-the-shell.jpg" class="img" alt="what-happens-when-you-type-ls-in-the-shell">
+                                </div>
+                                <div class="post-info flex-row">
+                                    <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;January 16, 2022</span>
+                                </div>
+                            </div>
+                            <div class="post-title">
+                                <a href="../blog posts/post_3.html">What happens when you type ls -l in the shell</a>
+                            </div>
+                        </div>
+                        <div class="post-content" data-aos="flip-up" data-aos-delay="400">
+                            <div class="post-image">
+                                <div>
+                                    <img src="../assets/Blog-post/C-compiler-1.jpg" class="img" alt="how-to-install-c-compiler">
+                                </div>
+                                <div class="post-info flex-row">
+                                    <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;January 16, 2022</span>
+                                </div>
+                            </div>
+                            <div class="post-title">
+                                <a href="../blog posts/post_4.html">How to install the C language GCC compiler on Windows</a>
+                            </div>
+                        </div>
+                    </div>
+                        <div class="newsletter" data-aos="fade-up" data-aos-delay="300">
+                            <h2>Newsletter</h2>
+                            <div class="form-element">
+                                <input type="text" class="input-element" placeholder="Email">
+                                <button class="btn form-btn">Subscribe</button>
+                            </div>
+                        </div>
+                        <div class="popular-tags">
+                            <h2>Popuplar Tags</h2>
+                            <div class="tags flex-row">
+                                <span class="tag" data-aos="flip-up" data-aos-delay="100">Software</span>
+                                <span class="tag" data-aos="flip-up" data-aos-delay="200">Technology</span>
+                                <span class="tag" data-aos="flip-up" data-aos-delay="300">Illustration</span>
+                                <span class="tag" data-aos="flip-up" data-aos-delay="400">Design</span>
+                                <span class="tag" data-aos="flip-up" data-aos-delay="500">Programming</span>
+                                <span class="tag" data-aos="flip-up" data-aos-delay="600">Lifestyle</span>
+                                <span class="tag" data-aos="flip-up" data-aos-delay="700">Project</span>
+                            </div>
+                        </div>
+                </aside>
+            </div>
+        </section>
+
+    </main>
+    
+    <!-- Main Site Section -->
+    <!-- Footer -->
+
+    <footer class="footer">
+        <div class="container">
+            <div class="about-us" data-aos="fade-right" data-aos-delay="200">
+                <h2>About us</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium quia atque nemo ad modi officiis
+                    iure, autem nulla tenetur repellendus.</p>
+            </div>
+            <div class="newsletter" data-aos="fade-right" data-aos-delay="200">
+                <h2>Newsletter</h2>
+                <p>Stay update with our latest</p>
+                <div class="form-element">
+                    <input type="text" placeholder="Email"><span><i class="fas fa-chevron-right"></i></span>
+                </div>
+            </div>
+            <div class="instagram" data-aos="fade-left" data-aos-delay="200">
+                <h2>Instagram</h2>
+                <div class="flex-row">
+                    <img src="../assets/instagram/thumb-card3.png" alt="insta1">
+                    <img src="../assets/instagram/thumb-card4.png" alt="insta2">
+                    <img src="../assets/instagram/thumb-card5.png" alt="insta3">
+                </div>
+                <div class="flex-row">
+                    <img src="../assets/instagram/thumb-card6.png" alt="insta4">
+                    <img src="../assets/instagram/thumb-card7.png" alt="insta5">
+                    <img src="../assets/instagram/thumb-card8.png" alt="insta6">
+                </div>
+            </div>
+            <div class="follow" data-aos="fade-left" data-aos-delay="200">
+                <h2>Follow us</h2>
+                <p>Let us be social</p>
+                <div>
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-medium"></i>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="rights flex-row">
+            <h4 class="text-gray">
+                Copyright ©2022 All rights reserved | made with <span>❤</span> by
+                <a href="www.github.com/timex19" target="_black"> <i class="fab fa-github"></i> Ojo Timilehin</a>
+            </h4>
+        </div>
+        <div class="move-up">
+            <span><i class="fas fa-arrow-circle-up fa-2x"></i></span>
+        </div>
+    </footer>
+
+    <!-- Footer -->
+
+    <!-- Jquery Library file -->
+    <script src="../js/Jquery3.4.1.min.js"></script>
+    
+    <!-- Owl-Carousel js file -->
+    <script src="../js/owl.carousel.min.js"></script>
+
+    <!-- AOS js Library -->
+    <script src="../js/aos.js"></script>
+
+    <!-- Custom Javascript file -->
+    <script src="../js/main.js"></script>
+</body>
+</html>
